@@ -1,0 +1,100 @@
+/**
+ * Black theme for reveal.js.
+ *
+ * Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Include theme-specific fonts
+// @import url(https://fonts.googleapis.com/css?family=Montserrat:700);
+// @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic,700italic);
+
+@font-face {
+    font-family: 'Overpass2';
+    font-style: normal;
+    font-weight: 700;
+    font-display: auto;
+    src: url('./fonts/overpass2/overpass2-bold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Overpass2';
+    font-style: italic;
+    font-weight: 700;
+    font-display: auto;
+    src: url('./fonts/overpass2/overpass2-bolditalic.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Overpass2';
+    font-style: normal;
+    font-weight: 500;
+    font-display: auto;
+    src: url('./fonts/overpass2/overpass2-regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Overpass2';
+    font-style: italic;
+    font-weight: 500;
+    font-display: auto;
+    src: url('./fonts/overpass2/overpass2-italic.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Overpass2';
+    font-style: normal;
+    font-weight: normal;
+    font-display: auto;
+    src: url('./fonts/overpass2/overpass2-light.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Overpass2';
+    font-style: italic;
+    font-weight: normal;
+    font-display: auto;
+    src: url('./fonts/overpass2/overpass2-lightitalic.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Overpass2';
+    font-style: normal;
+    font-weight: 300;
+    font-display: auto;
+    src: url('./fonts/overpass2/overpass2-extralight.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Overpass2';
+    font-style: italic;
+    font-weight: 300;
+    font-display: auto;
+    src: url('./fonts/overpass2/overpass2-extralightitalic.woff') format('woff');
+}
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #111;
+
+$mainFont: 'Overpass2';
+$linkColor: #e7ad52;
+$linkColorHover: lighten( $linkColor, 20% );
+$headingFont: 'Overpass2';
+$headingTextShadow: none;
+$headingLetterSpacing: -0.03em;
+$headingTextTransform: none;
+$selectionBackgroundColor: #e7ad52;
+
+// Change text colors against light slide backgrounds
+@include light-bg-text-color(#222);
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------

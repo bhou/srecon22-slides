@@ -9,7 +9,8 @@
 
   <link rel="stylesheet" href="dist/reset.css">
   <link rel="stylesheet" href="dist/reveal.css">
-  <link rel="stylesheet" href="dist/theme/night.css">
+  <link rel="stylesheet" href="dist/theme/serif.css">
+  <link rel="stylesheet" href="dist/slides.css">
 
   <!-- Theme used for syntax highlighted code -->
   <link rel="stylesheet" href="plugin/highlight/monokai.css">
@@ -21,68 +22,381 @@
 
       <!-- title slide -->
       <section>
-        <h2>A better way to manage command-line tools</h2>
+        <h1 class="r-fit-text" style="font-weight:bold; line-height:2; text-transform: uppercase;">
+          &nbsp;&nbsp;A better way to manage command line tools&nbsp;&nbsp;
+        </h1>
+        <p style="font-size: 24px;">
+          What we learned from 💻 software industry to improve command-line tool development
+        </p>
       </section>
 
       <!-- who am i -->
       <section>
-        <h2>Who am I</h2>
+        <img class="r-stretch figure" style="border:0px solid;" src="images/bo.png">
+        <p>
+          <span style="font-weight:bold;">BO HOU</span><br>
+          <span style="font-weight:500; font-size: 24px;">DevLead @ Build Services - Platform - </span>
+          <span style="font-weight:500; font-size: 26px;color:orange;">Criteo</span>
+        </p>
       </section>
 
       <!-- relationship -->
-      <section>
-        <h2>Relationship</h2>
+      <section data-background-image="images/family-unsplash.jpg">
+        <h1 style="color:#F0F1EB; font-weight:bold; text-transform: uppercase;">Family</h1>
+      </section>
+      <section data-state="lost-yourself">
+        <div class="r-stack">
+          <img data-id="lost-yourself-1" src="images/lost-yourself/1.png">
+          <img data-id="lost-yourself-2" class="fragment" style="transform: rotate(-10deg) translateY(50px)"
+            src="images/lost-yourself/2.png">
+          <img data-id="lost-yourself-3" class="fragment" style="transform: rotate(20deg) translate(20px, 200px)"
+            src="images/lost-yourself/3.png">
+          <img data-id="lost-yourself-4" class="fragment" style="transform: rotate(-30deg) translate(-50px, 100px)"
+            src="images/lost-yourself/4.png">
+          <img data-id="lost-yourself-5" class="fragment" style="transform: rotate(-10deg) translateY(200px)"
+            src="images/lost-yourself/5.png">
+          <img data-id="lost-yourself-6" class="fragment" style="transform: rotate(10deg) translate(100px, 400px)"
+            src="images/lost-yourself/6.png">
+          <img data-id="lost-yourself-7" class="fragment" style="transform: rotate(-20deg) translate(-100px, 300px)"
+            src="images/lost-yourself/7.png">
+        </div>
+      </section>
+      <section data-transition="slide">
+        <h1 class="r-fit-text b-title" style="padding:100px;">Command Line
+          Tool
+        </h1>
       </section>
 
       <!-- reinvent the wheel -->
-      <section>
-        <h2>Reinvent the wheel</h2>
+      <section data-transition="none">
+        <h1 class="b-section-title">Reimplement common functions</h1>
+        <ul>
+          <li class="fragment">Release and deployment</li>
+          <li class="fragment">Auto-update</li>
+          <li class="fragment">Arguments parsing</li>
+          <li class="fragment">Auto-complete</li>
+          <li class="fragment">Credential management</li>
+          <div class="fragment">
+            <li>Configuration management</li>
+          </div>
+        </ul>
+      </section>
+      <section data-background-image="images/distracted.gif" data-background-size="100%">
       </section>
 
       <!-- missing feature -->
       <section>
-        <h2>Missing feature</h2>
-        <p>We are jealous</p>
+        <h2 class="b-section-title">(Almost) Missing features</h2>
+        <ul>
+          <li class="fragment">Observability</li>
+          <li class="fragment">Progressive rollout</li>
+          <li class="fragment">A/B testing</li>
+          <li class="fragment">Log management</li>
+        </ul>
       </section>
 
       <!-- user's perspective -->
       <section>
-        <h2>User's perspective</h2>
+        <h2 class="b-section-title">User's perspective</h2>
         <ul>
-          <li>Discovery</li>
-          <li>Setup & Install</li>
-          <li>Sharing</li>
+          <li class="fragment">Discovery</li>
+          <li class="fragment">Setup & Install</li>
+          <li class="fragment">Inconsistent User Interface</li>
+          <li class="fragment">Sharing</li>
         </ul>
       </section>
 
       <!-- sharing -->
       <section>
-        <h2>Sharing</h2>
+        <h2 class="r-fit-text b-title">git clone "build-services-<span style="color:red">dirty</span>-scripts"</h2>
       </section>
+      <section data-auto-animate>
+        <div class="terminal-window">
+          <div class="terminal" data-id="term1">
+            <div class="header">
+              <div class="button green"></div>
+              <div class="button yellow"></div>
+              <div class="button red"></div>
+            </div>
+            <div class="history"></div>
+            $&nbsp;<span class="prompt">remove-agents.sh</span>
+            <span class="typed-cursor">█</span>
+          </div>
+        </div>
+      </section>
+      <section data-auto-animate>
+        <div class="terminal-window">
+          <div class="terminal" data-id="term1">
+            <div class="header">
+              <div class="button green"></div>
+              <div class="button yellow"></div>
+              <div class="button red"></div>
+            </div>
+            <div class="history">
+              <div>
+                $&nbsp;<span class="prompt">remove-agents.sh</span><br>
+                <span>Error: invalid input</span><br>
+                <span> </span><br>
+              </div>
+            </div>
+            $<span class="prompt"></span>
+            <span class="typed-cursor">█</span>
+          </div>
+        </div>
+      </section>
+      <section data-auto-animate>
+        <div class="terminal-window" data-id="share-1">
+          <div class="terminal" data-id="term1">
+            <div class="header">
+              <div class="button green"></div>
+              <div class="button yellow"></div>
+              <div class="button red"></div>
+            </div>
+            <div class="history">
+              <div>
+                $&nbsp;<span class="prompt">remove-agents.sh</span><br>
+                <span>Error: invalid input</span><br>
+                <span> </span><br>
+              </div>
+              <div>
+                $&nbsp;<span class="prompt">remove-agents.sh</span><br><br>
+                <span>Remove agents with low disk space</span><br><br>
+                <span>Usage:</span><br>
+                &nbsp;&nbsp;<span>remove-agents.sh [flags]</span><br><br>
+                <span>Flags:</span><br>
+                &nbsp;&nbsp;<span>-h, --help&nbsp;&nbsp;&nbsp;&nbsp;print help</span><br>
+                &nbsp;&nbsp;<span>-u, --url&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cluster url</span><br>
+                &nbsp;&nbsp;<span>-s, --size&nbsp;&nbsp;&nbsp;&nbsp;disk threshold</span><br>
+                &nbsp;&nbsp;<span>-w, --wait&nbsp;&nbsp;&nbsp;&nbsp;wait job to finish</span><br>
+                <span> </span><br>
+              </div>
+            </div>
+            $<span class="prompt"></span>
+            <span class="typed-cursor">█</span>
+          </div>
+        </div>
+      </section>
+      <section data-auto-animate>
+        <div class="terminal-window">
+          <div class="terminal" data-id="term2">
+            <div class="header">
+              <div class="button green"></div>
+              <div class="button yellow"></div>
+              <div class="button red"></div>
+            </div>
+            <div class="history"></div>
+            $&nbsp;<span class="prompt">remove-agents.sh</span>
+            <span class="typed-cursor">█</span>
+          </div>
+        </div>
+      </section>
+      <section data-auto-animate data-state="reinstall-all">
+        <div class="terminal-window" data-id="term3">
+          <div class="terminal" data-id="term2">
+            <div class="header">
+              <div class="button green"></div>
+              <div class="button yellow"></div>
+              <div class="button red"></div>
+            </div>
+            <div class="history">
+              <div>
+                $&nbsp;<span class="prompt">remove-agents.sh</span><br>
+                <span class="fragment">Removing agent qtfckq9080893 ...</span><br>
+                <span class="fragment">Removing agent qtfckq91609d7 ...</span><br>
+                <span class="fragment">Removing agent qtfcts93400ba ...</span><br>
+                <span class="fragment">Removing agent qtfcts91501a5 ...</span><br>
+                <span class="fragment">Removing agent qtfckq9151306 ...</span><br>
+                <span class="fragment">Removing agent qtfckq85108c5 ...</span><br>
+                <span class="fragment">Removing agent qtfckq8130228 ...</span><br>
+                <span class="fragment">Removing agent qtfckq8150001 ...</span><br>
+                <span class="fragment">Removing agent qtfckq8150079 ...</span><br>
+                <span class="fragment">Removing agent qtfckq81500b1 ...</span><br>
+                <span class="fragment">Ctrl-C Ctrl-C Ctrl-C Ctrl-C Ctrl-C Ctrl-C Ctrl-C Ctrl-C Ctrl-C Ctrl-C Ctrl-C
+                  Ctrl-C Ctrl-C Ctrl-C Ctrl-C Ctrl-C Ctrl-C Ctrl-C Ctrl-C </span><br><br>
+                <span class="fragment">Removed 230 agents ...</span><br>
+                <span> </span><br>
+              </div>
+            </div>
+            <div class="fragment">
+              $<span class="prompt"></span>
+              <span class="typed-cursor">█</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section data-auto-animate>
+        <div style="margin-left:100px;height:100%;width:100%">
+          <div class="terminal-window" data-id="term3" style="float:left;">
+            <div class="terminal">
+              <div class="header">
+                <div class="button green"></div>
+                <div class="button yellow"></div>
+                <div class="button red"></div>
+              </div>
+              <div class="history">
+                <div>
+                  $&nbsp;<span class="prompt">remove-agents.sh</span><br>
+                  <span>Removing agent qtfckq9080893 ...</span><br>
+                  <span>Removing agent qtfckq91609d7 ...</span><br>
+                  <span>Removing agent qtfcts93400ba ...</span><br>
+                  <span>Removing agent qtfcts91501a5 ...</span><br>
+                  <span>Removing agent qtfckq9151306 ...</span><br>
+                  <span>Removing agent qtfckq85108c5 ...</span><br>
+                  <span>Removing agent qtfckq8130228 ...</span><br>
+                  <span>Removing agent qtfckq8150001 ...</span><br>
+                  <span>Removing agent qtfckq8150079 ...</span><br>
+                  <span>Removing agent qtfckq81500b1 ...</span><br>
+                  <span>Ctrl-C Ctrl-C Ctrl-C Ctrl-C Ctrl-C Ctrl-C Ctrl-C Ctrl-C Ctrl-C Ctrl-C Ctrl-C
+                    Ctrl-C Ctrl-C Ctrl-C Ctrl-C Ctrl-C Ctrl-C Ctrl-C Ctrl-C </span><br><br>
+                  <span>Removed 230 agents ...</span><br>
+                  <span> </span><br>
+                </div>
+              </div>
+              <div>
+                $<span class="prompt"></span>
+                <span class="typed-cursor">█</span>
+              </div>
+            </div>
+          </div>
+          <div style="float:left;height:100%" data-auto-animate-duration="0.3">
+            <img class="r-fit-text" style="height:450px; width:auto" src="images/oh-no-no-no.webp">
+          </div>
+        </div>
+      </section>
+
+
 
       <!-- recap -->
       <section>
-        <h2>recap</h2>
+        <h2 class="b-title">recap</h2>
+        <ul>
+          <li>Provide standard functionalities</li>
+          <li>Treat command line tools as the first-class citizen</li>
+          <li>Make commands easy to be discovered</li>
+          <li>Easy to install</li>
+          <li>Consistent user interface</li>
+          <li>Raise the base quality of all scripts for sharing</li>
+        </ul>
       </section>
 
       <!-- Desktop software development in 90s/00s -->
       <section>
-        <h2>Desktop software development in 90s/00s</h2>
+        <h2 class="b-title">Desktop software development in 90s/00s</h2>
       </section>
 
-      <!-- user's perspective -->
       <section>
-        <h2>User's perspective</h2>
+        <h2 class="b-title">Installers</h2>
+        <img style="height:450px;" src="images/installer.png">
+      </section>
+
+      <section>
+        <h2 class="b-title">Release & Deployment</h2>
+        <img style="height:450px;" src="images/floppydisks.jpeg">
+      </section>
+
+      <section>
+        <h2 class="b-title">Graphical Interface</h2>
+        <img style="height:450px;" src="images/gui-swing.png">
+      </section>
+
+      <section>
+        <h2 class="b-title">A/B Testing</h2>
+        <img style="height:450px;" src="images/what-the-hell-does-that-even-mean.gif">
+      </section>
+
+      <section>
+        <h2 class="b-title">Discovery</h2>
+        <img style="height:450px;" src="images/magazine.jpeg">
+        <img style="height:450px;" src="images/magazine-game.jpeg">
       </section>
 
       <!-- SaaS to rescue -->
       <section>
-        <h2>SaaS<h2>
+        <h2 class="b-title">SaaS</h2>
+        <ul>
+          <li>Browser acts as an entry point to web applications, no installation required</li>
+          <li>Browser provides common function to your web application, and enables the new possibilities: progressive
+            rollout, A/B testing ...</li>
+          <li>HTML & CSS is the interface language to describe your app's UI</li>
+          <li>Still be able build your web application with your preferred tech stack</li>
+          <li>Search engine indexes your web application for discovery</li>
+        </ul>
+
       </section>
 
       <!-- Take a closer look -->
       <section>
-        <h2>Take a closer look</h2>
+        <h2 class="b-title">Take a closer look</h2>
+        <div>
+          <div class="fragment" style="margin-left:200px;">
+            <div style="float:left;width:400px;text-align:left;margin-top:20px;">Browser</div>
+            <div style="float:left;width:600px;text-align:left;margin-top:20px;">
+              <ul>
+                <li>Entry point</li>
+                <li>Common functionalities</li>
+              </ul>
+            </div>
+          </div>
+          <div class="fragment" style="margin-left:200px;">
+            <div style="float:left;width:400px;text-align:left;margin-top:40px;">HTML & CSS</div>
+            <div style="float:left;width:600px;text-align:left;margin-top:40px;">
+              <ul>
+                <li>Declarative user interface</li>
+                <li>Discovery</li>
+                <li>Separate concerns</li>
+              </ul>
+            </div>
+          </div>
+          <div class="fragment" style="margin-left:200px;">
+            <div style="float:left;width:400px;text-align:left;margin-top:40px;">Web server</div>
+            <div style="float:left;width:600px;text-align:left;margin-top:40px;">
+              <ul>
+                <li>Business logic</li>
+                <li>Technology agnostic</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="b-title">Fill in the blanks</h2>
+        <div>
+          <div style="margin-left:200px;">
+            <div class="fragment" style="float:left;width:400px;text-align:left;text-decoration:underline;">Command
+              Launcher</div>
+            <div style="float:left;width:600px;text-align:left;">
+              <ul>
+                <li>Entry point</li>
+                <li>Common functionalities</li>
+              </ul>
+            </div>
+          </div>
+          <div style="margin-left:200px;">
+            <div class=fragment
+              style="float:left;width:400px;text-align:left;margin-top:40px;text-decoration:underline;">Manifest file
+            </div>
+            <div style="float:left;width:600px;text-align:left;margin-top:40px;">
+              <ul>
+                <li>Declarative user interface</li>
+                <li>Discovery</li>
+                <li>Separate concerns</li>
+              </ul>
+            </div>
+          </div>
+          <div style="margin-left:200px;">
+            <div class="fragment"
+              style="float:left;width:400px;text-align:left;margin-top:40px;text-decoration:underline;">
+              Program/Script
+            </div>
+            <div style="float:left;width:600px;text-align:left;margin-top:40px;">
+              <ul>
+                <li>Business logic</li>
+                <li>Technology agnostic</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </section>
 
       <!-- Integrate a bash script -->
@@ -138,6 +452,10 @@
   <script src="plugin/notes/notes.js"></script>
   <script src="plugin/markdown/markdown.js"></script>
   <script src="plugin/highlight/highlight.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"
+    integrity="sha512-3J8teBiHrSyaaRBajZyIEtpDsXdPq1gsznKWIVb5CnorQuFhjWGhWe54z8YNnHHr7MZuExb9m5kvf964HiT1Sw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
   <script>
     // More info about initialization & config:
     // - https://revealjs.com/initialization/
@@ -146,10 +464,51 @@
       hash: true,
       width: 1280,
       height: 720,
+      transition: 'none',
+
+      controls: false,
+      // center: false,
 
       // Learn about plugins: https://revealjs.com/plugins/
       plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
     });
+  </script>
+
+  <script>
+    Reveal.on('lost-yourself', () => {
+      let count = 0;
+      let interval = setInterval(() => {
+        console.log(count)
+        Reveal.nextFragment()
+        count++
+        if (count > 7) {
+          clearInterval(interval)
+        }
+      }, 300);
+    });
+
+    Reveal.on('reinstall-all', () => {
+
+      let count = 0;
+      let interval = setInterval(() => {
+        if (count <= 10 || count > 14) {
+          Reveal.nextFragment()
+        }
+        count++
+        if (count > 16) {
+          clearInterval(interval)
+          setTimeout(() => {
+            Reveal.next()
+          }, 500);
+        }
+      }, 200);
+    });
+
+    Reveal.on('slidechanged', event => {
+      console.log(event)
+      // event.previousSlide, event.currentSlide, event.indexh, event.indexv
+    });
+
   </script>
 </body>
 
