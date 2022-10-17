@@ -1,0 +1,5 @@
+pkgName: my-first-package
+version: 0.0.1
+cmds:
+  - name: greeting
+  - executable: "{{.PackageDir}}/hi"

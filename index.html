@@ -312,13 +312,13 @@
 
       <!-- SaaS to rescue -->
       <section>
-        <h2 class="b-title">SaaS</h2>
+        <h2 class="b-title">Software as a Service</h2>
         <ul>
           <li>Browser acts as an entry point to web applications, no installation required</li>
           <li>Browser provides common function to your web application, and enables the new possibilities: progressive
             rollout, A/B testing ...</li>
           <li>HTML & CSS is the interface language to describe your app's UI</li>
-          <li>Still be able build your web application with your preferred tech stack</li>
+          <li>Still be able to build web application with preferred tech stack</li>
           <li>Search engine indexes your web application for discovery</li>
         </ul>
 
@@ -399,50 +399,554 @@
         </div>
       </section>
 
-      <!-- Integrate a bash script -->
-      <section>
-        <h2>Take an example</h2>
+      <!-- How does it work? -->
+      <section data-state="how-does-it-work">
+        <h2 class="b-title">How does it work?</h2>
+        <div style="font-size:24px;margin-bottom:20px;">Command Launcher @ Criteo: Criteo Dev Toolkit - cdt</div>
+        <div>
+          <div style="float:left;position:relative;top:-30px;margin-left:140px;width:600px;">
+            <div>
+              <pre><code class="yaml" data-line-numbers data-trim>
+              // manifest.mf
+              pkgName: my-first-package
+              version: 0.0.1
+              cmds:
+                - name: greeting
+                  executable: "{{.PackageDir}}/hi"
+              </code></pre>
+            </div>
+            <div class="fragment">
+              <div class="terminal-window" style="width:540px;height:320px;">
+                <div class="terminal" data-id="term1">
+                  <div class="header">
+                    <div class="button green"></div>
+                    <div class="button yellow"></div>
+                    <div class="button red"></div>
+                  </div>
+                  <div class="history">
+                    $&nbsp;<span class="prompt">tree</span><br>
+                    <span>my-first-package</span><br>
+                    <span>├── hi</span><br>
+                    <span>└── manifest.mf</span><br><br>
+                    <span>0 directories, 2 files</span><br>
+                    <span> </span><br>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="fragment"  style="float:left;width:400px">
+            <div class="terminal-window" style="width:400px;">
+              <div class="terminal" data-id="term1">
+                <div class="header">
+                  <div class="button green"></div>
+                  <div class="button yellow"></div>
+                  <div class="button red"></div>
+                </div>
+                <div class="history">
+                  <!-- <div> -->
+                  <!--   $&nbsp;<span class="prompt">cdt my-ls /tmp/demo</span><br> -->
+                  <!--   <span> </span><br> -->
+                  <!-- </div> -->
+                </div>
+                $&nbsp;<span class="prompt">cdt greeting SRECon</span>
+                <span class="typed-cursor">█</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section data-auto-animate>
+        <h2 class="b-title">How does it work?</h2>
+        <div style="font-size:24px;margin-bottom:20px;">Command Launcher @ Criteo: Criteo Dev Toolkit - cdt</div>
+        <div>
+          <div style="float:left;position:relative;top:-30px;margin-left:140px;width:600px;">
+            <div>
+              <pre><code class="yaml" data-line-numbers data-trim>
+              // manifest.mf
+              pkgName: my-first-package
+              version: 0.0.1
+              cmds:
+                - name: greeting
+                  executable: "{{.PackageDir}}/hi"
+              </code></pre>
+            </div>
+            <div>
+              <div class="terminal-window" style="width:540px;height:320px;">
+                <div class="terminal" data-id="term1">
+                  <div class="header">
+                    <div class="button green"></div>
+                    <div class="button yellow"></div>
+                    <div class="button red"></div>
+                  </div>
+                  <div class="history">
+                    $&nbsp;<span class="prompt">tree</span><br>
+                    <span>my-first-package</span><br>
+                    <span>├── hi</span><br>
+                    <span>└── manifest.mf</span><br><br>
+                    <span>0 directories, 2 files</span><br>
+                    <span> </span><br>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="float:left;width:400px">
+            <div class="terminal-window" style="width:400px;">
+              <div class="terminal" data-id="term1">
+                <div class="header">
+                  <div class="button green"></div>
+                  <div class="button yellow"></div>
+                  <div class="button red"></div>
+                </div>
+                <div class="history">
+                  <div>
+                    $&nbsp;<span class="prompt">cdt greeting SRECon</span><br>
+                    <span>Hello SRECon!</span><br><br>
+                    $&nbsp;<span class="prompt">./hi SRECon</span><br>
+                    <span>Hello SRECon!</span><br><br>
+                  </div>
+                </div>
+                $<span class="prompt"></span>
+                <span class="typed-cursor">█</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- native like scripts -->
+      <section data-auto-animate id="native-like-1">
+        <h2 class="b-title">Native-like scripts</h2>
+        <div>
+          <div style="position:relative;top:-30px;">
+            <div data-id="remove-agents.sh">
+              <pre><code class="bash" data-line-numbers data-trim>
+              # remove-agents.sh
+              CLUSTER_URL=${URL:-default-cluster}
+              DISK_SIZE_LIMIT=${SIZE:-20G}
+
+              # do real stuff here
+              </code></pre>
+            </div>
+            <div class="fragment" data-id="manifest-for-remove-agent">
+              <div>
+                <pre><code class="yaml" style="font-size:14px;line-height:1.2;height:350px;overflow-x:hidden;overflow-y:hidden;" data-line-numbers="|5-6|7-9|10-13|15-17|18-20" data-trim>
+                // manifest.mf
+                pkgName: agent-ops
+                version: 0.0.1
+                cmds:
+                  - name: agent
+                    type: group
+                  - name: remove
+                    type: executable
+                    group: agent
+                    short: remove agents with low disk
+                    long: |
+                      Remove agents with low disk.
+
+                    executable: {{.PackageDir}}/remove-agents.sh
+                    examples:
+                      - scenario: remove agents with disk space below 50G
+                        cmd: remove --url http://cluster.com --size 50G
+                    requiredFlags:
+                      - "url\t cluster url"
+                      - "size\t disk size threshold"
+                    checkFlags: true
+
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-auto-animate>
+        <h2 class="b-title">Native-like scripts</h2>
+        <div>
+          <div style="position:relative;top:-30px;">
+            <div data-id="remove-agents.sh">
+              <pre><code class="bash" data-line-numbers="2-3" data-trim>
+              # remove-agents.sh
+              CLUSTER_URL=${CDT_FLAG_URL:-default-cluster}
+              DISK_SIZE_LIMIT=${CDT_FLAG_SIZE:-20G}
+
+              # do real stuff here
+              </code></pre>
+            </div>
+            <div data-id="manifest-for-remove-agent">
+              <div>
+                <pre><code class="yaml" style="font-size:14px;line-height:1.2;height:350px;overflow-x:hidden;overflow-y:hidden;" data-line-numbers="18-20" data-trim>
+                // manifest.mf
+                pkgName: agent-ops
+                version: 0.0.1
+                cmds:
+                  - name: agent
+                    type: group
+                  - name: remove
+                    type: executable
+                    group: agent
+                    short: remove agents with low disk
+                    long: |
+                      Remove agents with low disk.
+
+                    executable: {{.PackageDir}}/remove-agents.sh
+                    examples:
+                      - scenario: remove agents with disk space below 50G
+                        cmd: remove --url http://cluster.com --size 50G
+                    requiredFlags:
+                      - "url\t cluster url"
+                      - "size\t disk size threshold"
+                    checkFlags: true
+
+                </code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section data-auto-animate>
+        <h2 class="b-title">Native-like scripts</h2>
+        <div>
+          <div style="float:left;position:relative;top:-30px;margin-left:140px;width:600px;">
+            <div >
+              <pre><code class="bash" style="overflow-x:hidden;overflow-y:hidden;border-radius:8px 8px 8px 8px;" data-line-numbers data-trim>
+              # remove-agents.sh
+              CLUSTER_URL=${CDT_FLAG_URL:-default-cluster}
+              DISK_SIZE_LIMIT=${CDT_FLAG_SIZE:-20G}
+
+              # do real stuff here
+              </code></pre>
+            </div>
+            <div data-id="manifest-for-remove-agent">
+              <div>
+                <pre><code class="yaml" style="font-size:14px;line-height:1.2;height:350px;overflow-x:hidden;overflow-y:hidden;border-radius:8px 8px 8px 8px;" data-line-numbers data-trim>
+                // manifest.mf
+                pkgName: agent-ops
+                version: 0.0.1
+                cmds:
+                  - name: agent
+                    type: group
+                  - name: remove
+                    type: executable
+                    group: agent
+                    short: remove agents with low disk
+                    long: |
+                      Remove agents with low disk.
+
+                    executable: {{.PackageDir}}/remove-agents.sh
+                    examples:
+                      - scenario: remove agents with disk space below 50G
+                        cmd: remove --url http://cluster.com --size 50G
+                    requiredFlags:
+                      - "url\t cluster url"
+                      - "size\t disk size threshold"
+                    checkFlags: true
+
+                </code></pre>
+              </div>
+            </div>
+          </div>
+          <div style="float:left;width:400px">
+            <div class="terminal-window" style="width:400px;height:512px;">
+              <div class="terminal" data-id="term1" style="font-size:14px;">
+                <div class="header">
+                  <div class="button green"></div>
+                  <div class="button yellow"></div>
+                  <div class="button red"></div>
+                </div>
+                <div class="history">
+                  <div style="font-size:14px;">
+                    $&nbsp;<span class="prompt">cdt agent remove</span><br><br>
+                    <span>Remove agents with low disk.</span><br><br>
+                    <span>Usage:</span><br>
+                    &nbsp;&nbsp;<span>cdt agent remove [flags]</span><br><br>
+                    <span>Examples:</span><br>
+                    &nbsp;&nbsp;<span># remove agents with disk space below 50G</span><br>
+                    &nbsp;&nbsp;<span>remove --url cluster.com --size 50G</span><br><br>
+                    <span>Flags:</span><br>
+                    &nbsp;&nbsp;<span>-h, --help &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; help for remove</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>--size string &nbsp; disk size threshold</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>--url string &nbsp;&nbsp; cluster url</span><br>
+                  </div>
+                </div>
+                $<span class="prompt"></span>
+                <span class="typed-cursor">█</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       <!-- auto-completion -->
       <section>
-        <h2>Auto-completion</h2>
+        <h2 class="b-title">Auto-complete</h2>
+        <div class="terminal-window" style="width:600px;height:450px;">
+          <div class="terminal" data-id="term1" style="font-size:14px;">
+            <div class="header">
+              <div class="button green"></div>
+              <div class="button yellow"></div>
+              <div class="button red"></div>
+            </div>
+            <img style="width:600px;" src="images/auto-complete.gif">
+          </div>
+        </div>
       </section>
 
       <!-- Credential management -->
       <section>
-        <h2>Credential management</h2>
+        <h2 class="b-title">Credential management</h2>
+        <div>
+          <div style="float:left;position:relative;margin-left:140px;width:600px;">
+            <div class="terminal-window fragment" style="width:540px;height:150px;">
+              <div class="terminal" data-id="term1" style="font-size:14px;overflow-y:hidden;">
+                <div class="header">
+                  <div class="button green"></div>
+                  <div class="button yellow"></div>
+                  <div class="button red"></div>
+                </div>
+                <img style="width:600px;" src="images/login.gif">
+              </div>
+            </div>
+            <div class="fragment">
+              <div>
+                <pre><code class="yaml" style="font-size:14px;line-height:1.2;height:180px;overflow-x:hidden;overflow-y:hidden;border-radius:8px 8px 8px 8px;" data-line-numbers="1,5-6" data-trim>
+                # remove-agents.sh
+                CLUSTER_URL=${CDT_FLAG_URL:-default-cluster}
+                DISK_SIZE_LIMIT=${CDT_FLAG_SIZE:-20G}
+
+                USERNAME=${CDT_USERNAME}
+                TOKEN=${CDT_TOKEN}
+
+                # do real stuff here with credentials
+                </code></pre>
+              </div>
+            </div>
+          </div>
+          <div class="fragment" style="float:left;width:450px">
+            <div style="position:relative;top:-30px;left:-20px">
+              <pre><code class="yaml" style="font-size:14px;line-height:1.2;height:360px;overflow-x:hidden;overflow-y:hidden;border-radius:8px 8px 8px 8px;" data-line-numbers="1,16-18" data-trim>
+              // manifest.mf
+              ...
+              cmds:
+                ...
+                - name: remove
+                  type: executable
+                  group: agent
+                  short: remove agents with low disk
+                  long: |
+                    Remove agents with low disk.
+
+                  executable: {{.PackageDir}}/remove-agents.sh
+                  examples:
+                    - scenario: remove agents with disk space below 50G
+                      cmd: remove --url http://cluster.com --size 50G
+                  requestedResources:
+                    - USERNAME
+                    - TOKEN
+                  ...
+              </code></pre>
+            </div>
+          </div>
+          <div class="fragment" style="position:relative;top:390px;left:20px;">
+            <div class="terminal-window" style="width:980px;height:200px;">
+              <div class="terminal" data-id="term1" style="font-size:14px;overflow-y:hidden;">
+                <div class="header">
+                  <div class="button green"></div>
+                  <div class="button yellow"></div>
+                  <div class="button red"></div>
+                </div>
+                <img style="width:600px;" src="images/consent.gif">
+              </div>
+            </div>
+          </div>
+        </div>
+
       </section>
 
 
       <!-- delivery & auto-update -->
       <section>
-        <h2>Delivery & Auto-update</h2>
+        <h2 class="r-fit-text b-title">Delivery & Auto-update</h2>
+      </section>
+      <section>
+        <h2 class="b-title">Enterprise Scenario</h2>
+        <div>
+          <div style="float:left;position:relative;width:720px;">
+            <div>
+              <pre><code class="yaml" style="font-size:14px;line-height:1.2;height:280px;overflow-x:hidden;overflow-y:hidden;border-radius:8px 8px 8px 8px;">
+
+
+        ┌──────────────────┐    Synch      ┌─────────────────────────┐
+        │ command launcher │◄──────────────│ Remote Package Registry │
+        └──────────────────┘               └─────────────────────────┘
+                 │                                      │
+      ┌──────────┼──────────┐              ┌────────────┼────────────┐
+      ▼          ▼          ▼              ▼            ▼            ▼
+  ┌───────┐  ┌───────┐  ┌───────┐     ┌─────────┐  ┌─────────┐  ┌─────────┐
+  │ pkg A │  │ pkg B │  │ pkg C │     │  pkg A  │  │  pkg B  │  │  pkg C  │
+  └───────┘  └───────┘  └───────┘     └─────────┘  └─────────┘  └─────────┘
+
+              </code></pre>
+            </div>
+          </div>
+          <div style="float:left;position:relative;left:-30px;width:550px;">
+            <div>
+              <pre><code class="json" style="font-size:14px;line-height:1.2;height:280px;overflow-x:hidden;overflow-y:hidden;border-radius:8px 8px 8px 8px;" data-trim>
+              // remote package registry
+              [
+                {
+                  "name": "moab-ci",
+                  "version": "49823",
+                  "checksum": "cc09377f2992f66a18efc87c9dc3bd5fea016a37fc7c1ef1d8fa80cf9bb35006",
+                  "url": "http://nexus.criteo.prod/ci-49823.zip",
+                  "startPartition": 0,
+                  "endPartition": 9
+                },
+                {
+                  "name": "moab-ci",
+                  "version": "1.1049525.4.1105-review",
+                  "checksum": "99581d42de2e01270f80795e0d557e7459079b459c00180cd3db6947c630196f",
+                  "startPartition": 3,
+                  "endPartition": 4,
+                  "url": "http://nexus.criteo.prod/ci-1.1049525.4.1105-review.zip"
+                },
+                {
+                  "name": "hotfix",
+                  "version": "1.0.0-49605",
+                  "checksum": "d2226edcf6cfce293386b49201a0d07bc8bd6d13ff5854955ede9361765c26e2",
+                  "startPartition": 0,
+                  "endPartition": 9,
+                  "url": "http://nexus.criteo.prod/cbt-49605-hotfix.pkg"
+                }
+              ]
+              </code></pre>
+            </div>
+          </div>
+        </div>
+        <div class="fragment" style="position:relative;top:360px;left:-10px;">
+          <div class="terminal-window" style="width:1180px;height:230px;">
+            <div class="terminal" data-id="term1" style="font-size:14px;overflow-y:hidden;">
+              <div class="header">
+                <div class="button green"></div>
+                <div class="button yellow"></div>
+                <div class="button red"></div>
+              </div>
+              <img style="width:600px;" src="images/auto-update.gif">
+            </div>
+          </div>
+        </div>
       </section>
 
       <!-- progressive rollout -->
       <section>
-        <h2>Progressive rollout</h2>
+        <h2 class="b-title">Progressive rollout</h2>
+        <div>
+          <pre><code class="json" style="font-size:14px;line-height:1.2;height:360px;overflow-x:hidden;overflow-y:hidden;border-radius:8px 8px 8px 8px;" data-line-numbers="8-9,15-16" data-trim>
+          // remote package registry
+          [
+            {
+              "name": "moab-ci",
+              "version": "49823",
+              "checksum": "cc09377f2992f66a18efc87c9dc3bd5fea016a37fc7c1ef1d8fa80cf9bb35006",
+              "url": "http://nexus.criteo.prod/ci-49823.zip",
+              "startPartition": 0,
+              "endPartition": 9
+            },
+            {
+              "name": "moab-ci",
+              "version": "1.1049525.4.1105-review",
+              "checksum": "99581d42de2e01270f80795e0d557e7459079b459c00180cd3db6947c630196f",
+              "startPartition": 3,
+              "endPartition": 4,
+              "url": "http://nexus.criteo.prod/ci-1.1049525.4.1105-review.zip"
+            },
+            {
+              "name": "hotfix",
+              "version": "1.0.0-49605",
+              "checksum": "d2226edcf6cfce293386b49201a0d07bc8bd6d13ff5854955ede9361765c26e2",
+              "startPartition": 0,
+              "endPartition": 9,
+              "url": "http://nexus.criteo.prod/cbt-49605-hotfix.pkg"
+            }
+          ]
+          </code></pre>
+        </div>
       </section>
 
       <!-- Monitoring & A/B Testing -->
       <section>
-        <h2>Monitoring & A/B Testing</h2>
+        <h2 class="r-fit-text b-title">Monitoring & A/B Testing</h2>
+        <img style="height:290px;" src="images/monitoring-hotfix.png">
+        <img style="height:290px;" src="images/monitoring-ci-exec.png">
       </section>
 
       <!-- Dropin packages -->
       <section>
-        <h2>Sharing with dropins</h2>
+        <h2 class="b-title">Sharing with dropins</h2>
+        <div style="width:720px;margin-left:260px;">
+          <div>
+            <pre><code class="yaml" style="font-size:14px;line-height:1.2;height:260px;overflow-x:hidden;overflow-y:hidden;border-radius:8px 8px 8px 8px;">
+                                 ┌──────────────────┐
+                  ┌──────────────│ command launcher │
+                  │              └──────────────────┘
+                  │                       │
+                  │            ┌──────────┼──────────┐
+                  ▼            ▼          ▼          ▼
+             ┌─────────┐   ┌───────┐  ┌───────┐  ┌───────┐
+             │ dropins │   │ pkg A │  │ pkg B │  │ pkg C │
+             └────┬────┘   └───────┘  └───────┘  └───────┘
+           ┌──────┴──────┐
+           ▼             ▼
+       ┌────────┐   ┌────────┐
+       │  pkg D │   │ pkg E  │
+       └────────┘   └────────┘
+            </code></pre>
+          </div>
+        </div>
+        <div style="width:720px;margin-left:260px;margin-top:30px;">
+          <div class="terminal-window" style="width:650px;height:150px;">
+            <div class="terminal" data-id="term1" style="font-size:16px;">
+              <div class="header">
+                <div class="button green"></div>
+                <div class="button yellow"></div>
+                <div class="button red"></div>
+              </div>
+              <div class="history" style="font-size:16px;">
+                <div>
+                  $&nbsp;<span class="prompt">cdt package install
+                  https://github.com/criteo/example-pkg.git</span><br>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </section>
 
-      <!-- What's next -->
+
+      <!-- New Possibilities -->
       <section>
-        <h2>What's next</h2>
+        <h2 class="b-title">New Possibilities</h2>
+        <ul>
+          <li>Search Engine for discoveries</li>
+          <li>Code generation for bootstrapping</li>
+          <li>TUI</li>
+          <li>...</li>
+        </ul>
+      </section>
+
+      <!-- Take aways -->
+      <section>
+        <!-- <h2 class="b-title">Open Source</h2> -->
+        <a style="font-family:Menlo;font-size:48px;" href="https://github.com/criteo/command-launcher">https://github.com/criteo/command-launcher</a>
+        <!-- <a style="font-family:Menlo" href="https://criteo.github.io/command-launcher">https://criteo.github.io/command-launcher</a> -->
       </section>
 
       <!-- End -->
       <section>
-        <h2>End</h2>
+        <h2 class="b-title">Thanks!</h2>
       </section>
 
     </div>
@@ -475,40 +979,43 @@
   </script>
 
   <script>
-    Reveal.on('lost-yourself', () => {
-      let count = 0;
-      let interval = setInterval(() => {
-        console.log(count)
-        Reveal.nextFragment()
-        count++
-        if (count > 7) {
-          clearInterval(interval)
-        }
-      }, 300);
-    });
-
-    Reveal.on('reinstall-all', () => {
-
-      let count = 0;
-      let interval = setInterval(() => {
-        if (count <= 10 || count > 14) {
+    function slides() {
+      Reveal.on('lost-yourself', () => {
+        let count = 0;
+        let interval = setInterval(() => {
+          console.log(count)
           Reveal.nextFragment()
-        }
-        count++
-        if (count > 16) {
-          clearInterval(interval)
-          setTimeout(() => {
-            Reveal.next()
-          }, 500);
-        }
-      }, 200);
-    });
+          count++
+          if (count > 7) {
+            clearInterval(interval)
+          }
+        }, 300);
+      });
 
-    Reveal.on('slidechanged', event => {
-      console.log(event)
-      // event.previousSlide, event.currentSlide, event.indexh, event.indexv
-    });
+      Reveal.on('reinstall-all', () => {
 
+        let count = 0;
+        let interval = setInterval(() => {
+          if (count <= 10 || count > 14) {
+            Reveal.nextFragment()
+          }
+          count++
+          if (count > 16) {
+            clearInterval(interval)
+            setTimeout(() => {
+              Reveal.next()
+            }, 500);
+          }
+        }, 200);
+      });
+
+      Reveal.on('slidechanged', event => {
+        console.log(event)
+        // event.previousSlide, event.currentSlide, event.indexh, event.indexv
+      });
+    }
+
+    slides()
   </script>
 </body>
 
