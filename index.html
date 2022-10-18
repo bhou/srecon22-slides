@@ -74,7 +74,7 @@
           <li class="fragment">Release and deployment</li>
           <li class="fragment">Auto-update</li>
           <li class="fragment">Arguments parsing</li>
-          <li class="fragment">Auto-complete</li>
+          <li class="fragment">Auto-completion</li>
           <li class="fragment">Credential management</li>
           <div class="fragment">
             <li>Configuration management</li>
@@ -314,10 +314,9 @@
       <section>
         <h2 class="b-title">Software as a Service</h2>
         <ul>
-          <li>Browser acts as an entry point to web applications, no installation required</li>
-          <li>Browser provides common function to your web application, and enables the new possibilities: progressive
-            rollout, A/B testing ...</li>
-          <li>HTML & CSS is the interface language to describe your app's UI</li>
+          <li>Applications are accessible from browsers, no installation required</li>
+          <li>Browser provides common function to your web application, and enables the new possibilities: progressive rollout, A/B testing ...</li>
+          <li>Unified interface language: HTML & CSS</li>
           <li>Still be able to build web application with preferred tech stack</li>
           <li>Search engine indexes your web application for discovery</li>
         </ul>
@@ -402,7 +401,7 @@
       <!-- How does it work? -->
       <section data-state="how-does-it-work">
         <h2 class="b-title">How does it work?</h2>
-        <div style="font-size:24px;margin-bottom:20px;">Command Launcher @ Criteo: Criteo Dev Toolkit - cdt</div>
+        <div style="font-size:24px;margin-bottom:20px;">Command Launcher is compiled with name "cdt" aka Criteo Dev Toolkit</div>
         <div>
           <div style="float:left;position:relative;top:-30px;margin-left:140px;width:600px;">
             <div>
@@ -458,7 +457,7 @@
       </section>
       <section data-auto-animate>
         <h2 class="b-title">How does it work?</h2>
-        <div style="font-size:24px;margin-bottom:20px;">Command Launcher @ Criteo: Criteo Dev Toolkit - cdt</div>
+        <div style="font-size:24px;margin-bottom:20px;">Command Launcher is compiled with name "cdt" aka Criteo Dev Toolkit</div>
         <div>
           <div style="float:left;position:relative;top:-30px;margin-left:140px;width:600px;">
             <div>
@@ -681,7 +680,7 @@
 
       <!-- auto-completion -->
       <section>
-        <h2 class="b-title">Auto-complete</h2>
+        <h2 class="b-title">Auto-completion</h2>
         <div class="terminal-window" style="width:600px;height:450px;">
           <div class="terminal" data-id="term1" style="font-size:14px;">
             <div class="header">
@@ -915,7 +914,7 @@
               </div>
               <div class="history" style="font-size:16px;">
                 <div>
-                  $&nbsp;<span class="prompt">cdt package install
+                  $&nbsp;<span class="prompt">cdt install --git
                   https://github.com/criteo/example-pkg.git</span><br>
                 </div>
               </div>
@@ -927,21 +926,20 @@
 
 
       <!-- New Possibilities -->
-      <section>
-        <h2 class="b-title">New Possibilities</h2>
-        <ul>
-          <li>Search Engine for discoveries</li>
-          <li>Code generation for bootstrapping</li>
-          <li>TUI</li>
-          <li>...</li>
-        </ul>
-      </section>
+      <!-- <section> -->
+      <!--   <h2 class="b-title">New Possibilities</h2> -->
+      <!--   <ul> -->
+      <!--     <li>Search Engine for discoveries</li> -->
+      <!--     <li>Code generation for bootstrapping</li> -->
+      <!--     <li>TUI</li> -->
+      <!--     <li>...</li> -->
+      <!--   </ul> -->
+      <!-- </section> -->
 
       <!-- Take aways -->
       <section>
         <!-- <h2 class="b-title">Open Source</h2> -->
         <a style="font-family:Menlo;font-size:48px;" href="https://github.com/criteo/command-launcher">https://github.com/criteo/command-launcher</a>
-        <!-- <a style="font-family:Menlo" href="https://criteo.github.io/command-launcher">https://criteo.github.io/command-launcher</a> -->
       </section>
 
       <!-- End -->
@@ -972,6 +970,8 @@
 
       controls: false,
       // center: false,
+
+      pdfSeparateFragments: false,
 
       // Learn about plugins: https://revealjs.com/plugins/
       plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
